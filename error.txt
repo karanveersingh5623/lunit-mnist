@@ -1,5 +1,5 @@
 Downloading artifacts:   0%|                                                                                                                                                                                | 0/6 [02:00<?, ?it/s]
-INFO:     127.0.0.1:60928 - "POST /predict?model_name=Test05 HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:44342 - "POST /predict?model_name=Test05 HTTP/1.1" 500 Internal Server Error
 ERROR:    Exception in ASGI application
 Traceback (most recent call last):
   File "/usr/local/lib/python3.10/dist-packages/uvicorn/protocols/http/h11_impl.py", line 406, in run_asgi
@@ -38,7 +38,7 @@ Traceback (most recent call last):
     raw_response = await run_endpoint_function(
   File "/usr/local/lib/python3.10/dist-packages/fastapi/routing.py", line 212, in run_endpoint_function
     return await dependant.call(**values)
-  File "/root/karan_code_lunit_assignment/backend/main.py", line 188, in predict_api
+  File "/root/karan_code_lunit_assignment/backend/main.py", line 193, in predict_api
     model = mlflow.pyfunc.load_model(model_uri=f"models:/{model_name}/1")
   File "/usr/local/lib/python3.10/dist-packages/mlflow/tracing/provider.py", line 268, in wrapper
     is_func_called, result = True, f(*args, **kwargs)
@@ -50,9 +50,9 @@ Traceback (most recent call last):
     model_path = self.repo.download_artifacts(artifact_path, dst_path)
   File "/usr/local/lib/python3.10/dist-packages/mlflow/store/artifact/artifact_repo.py", line 284, in download_artifacts
     raise MlflowException(
-mlflow.exceptions.MlflowException: The following failures occurred while downloading one or more artifacts from http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier:
+mlflow.exceptions.MlflowException: The following failures occurred while downloading one or more artifacts from http://127.0.0.1:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier:
 ##### File MLmodel #####
-API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel (Caused by ResponseError('too many 500 error responses'))
+API request to http://127.0.0.1:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel failed with exception HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel (Caused by ResponseError('too many 500 error responses'))
 Traceback:
 Traceback (most recent call last):
   File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 589, in send
@@ -68,7 +68,7 @@ Traceback (most recent call last):
     retries = retries.increment(method, url, response=response, _pool=self)
   File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 574, in increment
     raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel (Caused by ResponseError('too many 500 error responses'))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel (Caused by ResponseError('too many 500 error responses'))
 
 During handling of the above exception, another exception occurred:
 
@@ -83,7 +83,7 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 613, in send
     raise RetryError(e, request=request)
-requests.exceptions.RetryError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel (Caused by ResponseError('too many 500 error responses'))
+requests.exceptions.RetryError: HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel (Caused by ResponseError('too many 500 error responses'))
 
 During handling of the above exception, another exception occurred:
 
@@ -100,11 +100,11 @@ Traceback (most recent call last):
     resp = http_request(self._host_creds, endpoint, "GET", stream=True)
   File "/usr/local/lib/python3.10/dist-packages/mlflow/utils/rest_utils.py", line 212, in http_request
     raise MlflowException(f"API request to {url} failed with exception {e}")
-mlflow.exceptions.MlflowException: API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel (Caused by ResponseError('too many 500 error responses'))
+mlflow.exceptions.MlflowException: API request to http://127.0.0.1:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel failed with exception HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/MLmodel (Caused by ResponseError('too many 500 error responses'))
 
 
 ##### File conda.yaml #####
-API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/conda.yaml failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/conda.yaml (Caused by ResponseError('too many 500 error responses'))
+API request to http://127.0.0.1:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/conda.yaml failed with exception HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/conda.yaml (Caused by ResponseError('too many 500 error responses'))
 Traceback:
 Traceback (most recent call last):
   File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 589, in send
@@ -118,11 +118,11 @@ Traceback (most recent call last):
    resp = http_request(self._host_creds, endpoint, "GET", stream=True)
   File "/usr/local/lib/python3.10/dist-packages/mlflow/utils/rest_utils.py", line 212, in http_request
     raise MlflowException(f"API request to {url} failed with exception {e}")
-mlflow.exceptions.MlflowException: API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/python_env.yaml failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/python_env.yaml (Caused by ResponseError('too many 500 error responses'))
+mlflow.exceptions.MlflowException: API request to http://127.0.0.1:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/python_env.yaml failed with exception HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/python_env.yaml (Caused by ResponseError('too many 500 error responses'))
 
 
 ##### File requirements.txt #####
-API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt (Caused by ResponseError('too many 500 error responses'))
+API request to http://127.0.0.1:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt failed with exception HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt (Caused by ResponseError('too many 500 error responses'))
 Traceback:
 Traceback (most recent call last):
   File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 589, in send
@@ -138,7 +138,7 @@ Traceback (most recent call last):
     retries = retries.increment(method, url, response=response, _pool=self)
   File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 574, in increment
     raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt (Caused by ResponseError('too many 500 error responses'))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt (Caused by ResponseError('too many 500 error responses'))
 
 During handling of the above exception, another exception occurred:
 
@@ -153,7 +153,7 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 613, in send
     raise RetryError(e, request=request)
-requests.exceptions.RetryError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt (Caused by ResponseError('too many 500 error responses'))
+requests.exceptions.RetryError: HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt (Caused by ResponseError('too many 500 error responses'))
 
 During handling of the above exception, another exception occurred:
 
@@ -170,187 +170,4 @@ Traceback (most recent call last):
     resp = http_request(self._host_creds, endpoint, "GET", stream=True)
   File "/usr/local/lib/python3.10/dist-packages/mlflow/utils/rest_utils.py", line 212, in http_request
     raise MlflowException(f"API request to {url} failed with exception {e}")
-mlflow.exceptions.MlflowException: API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt (Caused by ResponseError('too many 500 error responses'))
-
-
-Downloading artifacts:   0%|                                                                                                                                                                                | 0/6 [00:00<?, ?it/s]
-
-
-
-
-Downloading artifacts:   0%|                                                                                                                                                                                | 0/6 [02:00<?, ?it/s]
-INFO:     127.0.0.1:49430 - "POST /predict?model_name=mymodel HTTP/1.1" 500 Internal Server Error
-ERROR:    Exception in ASGI application
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/uvicorn/protocols/http/h11_impl.py", line 406, in run_asgi
-    result = await app(  # type: ignore[func-returns-value]
-  File "/usr/local/lib/python3.10/dist-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
-    return await self.app(scope, receive, send)
-  File "/usr/local/lib/python3.10/dist-packages/fastapi/applications.py", line 1054, in __call__
-    await super().__call__(scope, receive, send)
-  File "/usr/local/lib/python3.10/dist-packages/starlette/applications.py", line 113, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/usr/local/lib/python3.10/dist-packages/starlette/middleware/errors.py", line 187, in __call__
-    raise exc
-  File "/usr/local/lib/python3.10/dist-packages/starlette/middleware/errors.py", line 165, in __call__
-    await self.app(scope, receive, _send)
-  File "/usr/local/lib/python3.10/dist-packages/starlette/middleware/exceptions.py", line 62, in __call__
-    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
-  File "/usr/local/lib/python3.10/dist-packages/starlette/_exception_handler.py", line 62, in wrapped_app
-    raise exc
-  File "/usr/local/lib/python3.10/dist-packages/starlette/_exception_handler.py", line 51, in wrapped_app
-    await app(scope, receive, sender)
-  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 715, in __call__
-    await self.middleware_stack(scope, receive, send)
-  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 735, in app
-    await route.handle(scope, receive, send)
-  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 288, in handle
-    await self.app(scope, receive, send)
-  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 76, in app
-    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
-  File "/usr/local/lib/python3.10/dist-packages/starlette/_exception_handler.py", line 62, in wrapped_app
-    raise exc
-  File "/usr/local/lib/python3.10/dist-packages/starlette/_exception_handler.py", line 51, in wrapped_app
-    await app(scope, receive, sender)
-  File "/usr/local/lib/python3.10/dist-packages/starlette/routing.py", line 73, in app
-    response = await f(request)
-  File "/usr/local/lib/python3.10/dist-packages/fastapi/routing.py", line 301, in app
-    raw_response = await run_endpoint_function(
-  File "/usr/local/lib/python3.10/dist-packages/fastapi/routing.py", line 212, in run_endpoint_function
-    return await dependant.call(**values)
-  File "/root/karan_code_lunit_assignment/backend/main.py", line 188, in predict_api
-    model = mlflow.pyfunc.load_model(model_uri=f"models:/{model_name}/1")
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/tracing/provider.py", line 268, in wrapper
-    is_func_called, result = True, f(*args, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/pyfunc/__init__.py", line 1017, in load_model
-    local_path = _download_artifact_from_uri(
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/tracking/artifact_utils.py", line 111, in _download_artifact_from_uri
-    return repo.download_artifacts(
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/store/artifact/models_artifact_repo.py", line 200, in download_artifacts
-    model_path = self.repo.download_artifacts(artifact_path, dst_path)
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/store/artifact/artifact_repo.py", line 284, in download_artifacts
-    raise MlflowException(
-mlflow.exceptions.MlflowException: The following failures occurred while downloading one or more artifacts from http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model:
-##### File MLmodel #####
-API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/MLmodel failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/MLmodel (Caused by ResponseError('too many 500 error responses'))
-Traceback:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 589, in send
-    resp = conn.urlopen(
-  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 851, in urlopen
-    return self.urlopen(
-  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 851, in urlopen
-    return self.urlopen(
-  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 851, in urlopen
-    return self.urlopen(
-  [Previous line repeated 2 more times]
-  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 841, in urlopen
-    retries = retries.increment(method, url, response=response, _pool=self)
-  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 574, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/MLmodel (Caused by ResponseError('too many 500 error responses'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/utils/rest_utils.py", line 189, in http_request
-    return _get_http_response_with_retries(
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/utils/request_utils.py", line 237, in _get_http_response_with_retries
-    return session.request(method, url, allow_redirects=allow_redirects, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 613, in send
-    raise RetryError(e, request=request)
-requests.exceptions.RetryError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/MLmodel (Caused by ResponseError('too many 500 error responses'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/store/artifact/artifact_repo.py", line 267, in download_artifacts
-    f.result()
-  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
-    return self.__get_result()
-  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
-    raise self._exception
-  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/store/artifact/http_artifact_repo.py", line 104, in _download_file
-    resp = http_request(self._host_creds, endpoint, "GET", stream=True)
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/utils/rest_utils.py", line 212, in http_request
-    raise MlflowException(f"API request to {url} failed with exception {e}")
-mlflow.exceptions.MlflowException: API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/MLmodel failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/MLmodel (Caused by ResponseError('too many 500 error responses'))
-
-
-##### File conda.yaml #####
-API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/conda.yaml failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/conda.yaml (Caused by ResponseError('too many 500 error responses'))
-Traceback:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 589, in send
-    resp = conn.urlopen(
-  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 851, in urlopen
-    return self.urlopen(
-  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 851, in urlopen
-    return self.urlopen(
-  File "/usr/lib/python3/d
-
-*** Error message is too long, truncated ***
-
-ages/mlflow/store/artifact/http_artifact_repo.py", line 104, in _download_file
-    resp = http_request(self._host_creds, endpoint, "GET", stream=True)
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/utils/rest_utils.py", line 212, in http_request
-    raise MlflowException(f"API request to {url} failed with exception {e}")
-mlflow.exceptions.MlflowException: API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/python_env.yaml failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/python_env.yaml (Caused by ResponseError('too many 500 error responses'))
-
-
-##### File requirements.txt #####
-API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/requirements.txt failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/requirements.txt (Caused by ResponseError('too many 500 error responses'))
-Traceback:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 589, in send
-    resp = conn.urlopen(
-  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 851, in urlopen
-    return self.urlopen(
-  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 851, in urlopen
-    return self.urlopen(
-  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 851, in urlopen
-    return self.urlopen(
-  [Previous line repeated 2 more times]
-  File "/usr/lib/python3/dist-packages/urllib3/connectionpool.py", line 841, in urlopen
-    retries = retries.increment(method, url, response=response, _pool=self)
-  File "/usr/lib/python3/dist-packages/urllib3/util/retry.py", line 574, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/requirements.txt (Caused by ResponseError('too many 500 error responses'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/utils/rest_utils.py", line 189, in http_request
-    return _get_http_response_with_retries(
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/utils/request_utils.py", line 237, in _get_http_response_with_retries
-    return session.request(method, url, allow_redirects=allow_redirects, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/requests/sessions.py", line 703, in send
-    r = adapter.send(request, **kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/requests/adapters.py", line 613, in send
-    raise RetryError(e, request=request)
-requests.exceptions.RetryError: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/requirements.txt (Caused by ResponseError('too many 500 error responses'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/store/artifact/artifact_repo.py", line 267, in download_artifacts
-    f.result()
-  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
-    return self.__get_result()
-  File "/usr/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
-    raise self._exception
-  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/store/artifact/http_artifact_repo.py", line 104, in _download_file
-    resp = http_request(self._host_creds, endpoint, "GET", stream=True)
-  File "/usr/local/lib/python3.10/dist-packages/mlflow/utils/rest_utils.py", line 212, in http_request
-    raise MlflowException(f"API request to {url} failed with exception {e}")
-mlflow.exceptions.MlflowException: API request to http://localhost:5001/api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/requirements.txt failed with exception HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/174139529339084014/27528132942840ca8dc2a4b1c9f9d78f/artifacts/model/requirements.txt (Caused by ResponseError('too many 500 error responses'))
+mlflow.exceptions.MlflowException: API request to http://127.0.0.1:5001/api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt failed with exception HTTPConnectionPool(host='127.0.0.1', port=5001): Max retries exceeded with url: /api/2.0/mlflow-artifacts/artifacts/236249301755818463/eccf8bcc9bf0498b9baf35a3a59162bf/artifacts/ImageClassifier/requirements.txt (Caused by ResponseError('too many 500 error responses'))
