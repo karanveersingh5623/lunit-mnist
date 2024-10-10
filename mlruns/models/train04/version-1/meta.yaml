@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1728505917177
+current_stage: Production
+description: null
+last_updated_timestamp: 1728505917183
+name: train04
+run_id: fbd17db313634c18a82b04eb6bedcfd5
+run_link: null
+source: file:///root/karan_code_lunit_assignment/mlruns/337065329514680613/fbd17db313634c18a82b04eb6bedcfd5/artifacts/ImageClassifier-MNIST
+status: READY
+status_message: null
+storage_location: file:///root/karan_code_lunit_assignment/mlruns/337065329514680613/fbd17db313634c18a82b04eb6bedcfd5/artifacts/ImageClassifier-MNIST
+user_id: null
+version: 1

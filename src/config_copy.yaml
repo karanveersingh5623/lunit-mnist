@@ -1,0 +1,8 @@
+epochs: 10
+learning_rate: 0.01
+batch_size: 128
+checkpoint_path: "model_checkpoints/model_checkpoint.pth"
+register_model: false
+# loss_function: "CrossEntropyLoss"
+# metric_function: "Accuracy"
+# optimizer: "SGD"
